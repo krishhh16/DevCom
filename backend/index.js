@@ -20,6 +20,6 @@ app.use('/', (req, res) => {
     res.status(200).send({message:'Welcome to the API'})
 })
 
-app.listen(5000, ()=> {
+app.listen(5001, ()=> {
     console.log('Server is running on port 5000')
 })
