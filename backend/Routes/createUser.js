@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken')
 const jsonSecret = 'In this world, winning is everything'
 const User = require('../models/user')
 
-router.post('createuser', async (req, res) => {
+router.post('/createuser', async (req, res) => {
     const {userName, email, password} = req.body
     if (!userName || !email || !password){
         return res.status(400).json({msg: 'Missing fields'})
@@ -21,8 +21,12 @@ router.post('createuser', async (req, res) => {
             email,
             password: hashedPWD
         })
+        console.log('user created')
         return res.status(200).send({success: true})
     }catch (error) {
-        return res.status(400).send({ success: false, error})   
+        console.log('user creation failed')
+        return res.status(400).send({ success: false, error})  
     }
 })
+
+module.exports = router;

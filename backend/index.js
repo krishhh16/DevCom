@@ -16,6 +16,10 @@ app.use(express.json())
 mongoDB()
 
 app.use('/api', require('./Routes/createUser'))
+app.use('/', (req, res) => {
+    res.status(200).send({message:'Welcome to the API'})
+})
+
 app.listen(5000, ()=> {
     console.log('Server is running on port 5000')
 })
