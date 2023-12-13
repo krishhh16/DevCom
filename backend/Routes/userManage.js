@@ -29,4 +29,25 @@ router.post('/createuser', async (req, res) => {
     }
 })
 
+router.post('/login', async (req, res) => {
+    try {const {userName, password} = req.body;
+    const userExists = await User.findOne({userName})
+    
+    // If the username doesn't exist in our database we are returning a 400 bad request and an object containing a message
+    const comparePasswd = await bcrypt.compare(password, userExists.password)
+    if (!userExists || !comparePasswd ){
+        return res.status(400).send({noSuchUser: true})
+    }
+
+    const data = {
+        id: userExists.id
+    }
+    console.log('user authenticated')
+    const authToken = jwt.sign(data, jsonSecret);
+    return res.json({success: true, authToken})}
+    catch(err){
+        return res.status(500).send({error: err.message})
+    }
+})
+
 module.exports = router;

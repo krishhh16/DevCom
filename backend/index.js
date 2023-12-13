@@ -15,7 +15,7 @@ app.use(express.json())
 
 mongoDB()
 
-app.use('/api', require('./Routes/createUser'))
+app.use('/api', require('./Routes/userManage'))
 app.use('/', (req, res) => {
     res.status(200).send({message:'Welcome to the API'})
 })

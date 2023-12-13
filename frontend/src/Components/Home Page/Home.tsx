@@ -9,7 +9,7 @@ export default function HomePage() {
       <ul>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/sign-up">Sign up for free!!</Link></li>
-        <li><Link to="/log-in">Log in</Link></li>
+        <li><Link to="/login">Log in</Link></li>
       </ul>
     </nav>
   </header>

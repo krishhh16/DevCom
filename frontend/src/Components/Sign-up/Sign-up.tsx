@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import zxcvbn from 'zxcvbn';
 import './SignUpPage.css'; // Import your CSS styles
 
 export default function SignUpPage() {
+  const navigator = useNavigate()
   const [formData, setFormData] = useState({
-    name: '',
+    userName: '',
     email: '',
     password: '',
     confirmPassword: '',
@@ -29,16 +31,30 @@ export default function SignUpPage() {
     e.preventDefault();
     // Add your sign-up logic here
     console.log('Form submitted:', formData);
+
+    
+
     if (formData.password != formData.confirmPassword){
         alert('Please write the same password')
     }
-    const response = await fetch('http://localhost:5000/api/createUser', {
+    const response: any = await fetch('http://localhost:5001/api/createUser', {
         method: 'POST',
         headers: {
             "Content-type": "application/json"
         },
         body: JSON.stringify(formData)
     })
+    const resJson = response.json()
+    if (resJson.msg == 'Missing fields'){
+      alert("All fields must be filled out");
+    }else if (resJson.msg == 'User exists'){
+      alert("User already taken")
+    }else if (resJson.success == false){
+      alert("Error creating account")
+    }else {
+      alert('User Created! Please log in with the credentials')
+      navigator('/login')
+    }
   };
 
   return (
@@ -49,8 +65,8 @@ export default function SignUpPage() {
           Name:
           <input
             type="text"
-            name="name"
-            value={formData.name}
+            name="userName"
+            value={formData.userName}
             onChange={handleChange}
             required
           />
