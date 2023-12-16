@@ -32,6 +32,7 @@ export default function LoginPage() {
     if (response.ok) {
       alert('Login successful');
       // Redirect or perform any other action upon successful login
+      localStorage.setItem('token', resJson.authToken);
       navigator('/dashboard');
     } else {
       alert('Login failed. Check your credentials and try again.');
