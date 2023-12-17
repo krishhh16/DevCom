@@ -9,7 +9,7 @@ app.use((req, res, next) => {
         "Access-Control-Allow-Headers",
         "Origin, X-Requested-With, Content-Type, Accept"
     );
-    next()
+    next();
 })
 app.use(express.json())
 
