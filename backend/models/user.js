@@ -16,6 +16,14 @@ const UserSchema = new Schema({
     password: {
         required: true,
         type: String
+    },
+    twitterLogin: {
+        type: Boolean,
+        default: false
+    },
+    linkedinLogin: {
+        type: Boolean,
+        default: false
     }
 })
 

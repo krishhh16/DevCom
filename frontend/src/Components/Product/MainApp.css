@@ -1,0 +1,34 @@
+.App {
+    display: flex;
+    height: 100vh;
+   }
+   
+   .Sidebar {
+    flex: 1;
+    padding: 20px;
+    background-color: #222;
+   }
+   
+   .Sidebar ul {
+    list-style-type: none;
+    padding: 0;
+   }
+   
+   .Sidebar li {
+    padding: 10px 0;
+   }
+   
+   .Sidebar a {
+    color: #fff;
+    text-decoration: none;
+   }
+   
+   .Sidebar a:hover {
+    color: #ccc;
+   }
+   
+   .Content {
+    flex: 2;
+    padding: 20px;
+    background-color: #f0f0f0;
+   }

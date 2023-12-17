@@ -19,6 +19,9 @@ export default function HomePage() {
                 <Link to="/dashboard" className="text-white">Dashboard</Link>
               </li>
               <li>
+                <Link to='/app'>App</Link>
+              </li>
+              <li>
                 <button
                   onClick={handleLogOut}
                   className="text-white hover:underline"
