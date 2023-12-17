@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Routes,
@@ -9,6 +9,7 @@ import SignUpPage from './Components/Sign-up/Sign-up';
 import LoginPage from './Components/Log-in/Log-in';
 import MainApp from './Components/Product/MainApp';
 import Dashboard from './Components/Product/Dashboard/Dashboard';
+import Post from './Components/Product/New Post + AI/Post';
 function App() {
   return (
     <Router>
@@ -17,7 +18,7 @@ function App() {
         <Route path='/dashboard' element={<Dashboard/>}/>
         <Route path='/sign-up' element={<SignUpPage/>}/>
         <Route path='/login' element={<LoginPage/>}/>
-        <Route path='/app' element={<MainApp/>}/>
+        <Route path='/app' element={<MainApp component={<Post/>} />}/>
       </Routes>
     </Router>
   )
