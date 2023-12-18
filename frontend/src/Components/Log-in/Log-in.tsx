@@ -19,7 +19,7 @@ export default function LoginPage() {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
-    const response = await fetch('http://localhost:5001/api/login', {
+    const response = await fetch('http://localhost:5000/api/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -32,8 +32,8 @@ export default function LoginPage() {
     if (response.ok) {
       alert('Login successful');
       // Redirect or perform any other action upon successful login
-      localStorage.setItem('token', resJson.authToken);
-      navigator('/dashboard');
+      localStorage.setItem('authToken', resJson.authToken);
+      navigator('/app');
     } else {
       alert('Login failed. Check your credentials and try again.');
     }

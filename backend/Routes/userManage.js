@@ -40,7 +40,7 @@ router.post('/login', async (req, res) => {
     }
 
     const data = {
-        id: userExists.id
+        id: userExists.userName
     }
     console.log('user authenticated')
     const authToken = jwt.sign(data, jsonSecret);

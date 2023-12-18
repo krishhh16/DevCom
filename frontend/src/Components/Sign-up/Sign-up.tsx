@@ -37,7 +37,7 @@ export default function SignUpPage() {
     if (formData.password != formData.confirmPassword){
         alert('Please write the same password')
     }
-    const response: any = await fetch('http://localhost:5001/api/createUser', {
+    const response: any = await fetch('http://localhost:5000/api/createUser', {
         method: 'POST',
         headers: {
             "Content-type": "application/json"
