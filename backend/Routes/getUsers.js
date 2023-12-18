@@ -18,8 +18,8 @@ router.use((req,res,next) => {
 })
 
 router.post('/getUserInfo', async (req, res)=> {
-    const {id} = req.decoded;
-    const userData = await User.findOne({userName: id})
+    const {username} = req.decoded;
+    const userData = await User.findOne({userName: username})
     const {userName, email, twitterLogin, linkedinLogin} = userData;
 
     res.status(200).send({userName, email, twitterLogin, linkedinLogin})
