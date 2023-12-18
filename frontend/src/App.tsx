@@ -10,6 +10,7 @@ import LoginPage from './Components/Log-in/Log-in';
 import MainApp from './Components/Product/MainApp';
 import Dashboard from './Components/Product/Dashboard/Dashboard';
 import Post from './Components/Product/New Post + AI/Post';
+import Profile from './Components/Product/Profile/Profile';
 function App() {
   return (
     <Router>
@@ -19,6 +20,7 @@ function App() {
         <Route path='/sign-up' element={<SignUpPage/>}/>
         <Route path='/login' element={<LoginPage/>}/>
         <Route path='/app' element={<MainApp component={<Post/>} />}/>
+        <Route path='/profile' element= {<MainApp component={<Profile/>}/>} />
       </Routes>
     </Router>
   )
