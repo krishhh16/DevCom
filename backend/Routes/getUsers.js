@@ -6,6 +6,7 @@ const User = require('../models/user')
 const router = express.Router()
 
 router.use((req,res,next) => {
+    console.log('Within the authToken authentication')
     let token = req.headers.authorization;
 
     try {
@@ -18,8 +19,11 @@ router.use((req,res,next) => {
 })
 
 router.post('/getUserInfo', async (req, res)=> {
+    console.log('inside the getUserInfo')
     const {username} = req.decoded;
+    console.log(req.decoded)
     const userData = await User.findOne({userName: username})
+    console.log(userData)
     const {userName, email, twitterLogin, linkedinLogin} = userData;
 
     res.status(200).send({userName, email, twitterLogin, linkedinLogin})
