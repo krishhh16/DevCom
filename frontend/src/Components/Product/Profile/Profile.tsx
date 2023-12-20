@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 export default function Profile(){
     const [userName, setUserName] = useState('')
     const [email, setEmail] = useState('')
+    const [isLoginT, setTLogin] = useState(false)
+    const [isLoginL, setLLogin] = useState(false)
     const navigator = useNavigate()
 
 
@@ -31,6 +33,8 @@ export default function Profile(){
         }else {
           setUserName(resJson.userName);
           setEmail(resJson.email);
+          setLLogin(resJson.linkedinLogin);
+          setTLogin(resJson.twtterLogin)
         }
       }
       fetchUserData();
@@ -40,6 +44,8 @@ export default function Profile(){
         <div style={{ margin: "10px"}}>
           <h1>Hey! it's nice to see you back {userName}</h1>
           <h3>Your Email address is {email}</h3>
+          <h3>LinkedIn login: {isLoginL ? (<b>Yes</b>) : (<b>No</b>)}  </h3>
+          <h3>Twitter login: {isLoginT ? (<b>Yes</b>) : (<b>No</b>)}  </h3>
         </div> 
       )
 }

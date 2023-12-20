@@ -11,6 +11,7 @@ import MainApp from './Components/Product/MainApp';
 import Dashboard from './Components/Product/Dashboard/Dashboard';
 import Post from './Components/Product/New Post + AI/Post';
 import Profile from './Components/Product/Profile/Profile';
+import Test from './Components/Test';
 function App() {
   return (
     <Router>
@@ -21,6 +22,7 @@ function App() {
         <Route path='/login' element={<LoginPage/>}/>
         <Route path='/app' element={<MainApp component={<Post/>} />}/>
         <Route path='/profile' element= {<MainApp component={<Profile/>}/>} />
+        <Route path='/test' element= {<Test/>} />
       </Routes>
     </Router>
   )
